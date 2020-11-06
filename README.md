@@ -1,4 +1,6 @@
-# Straightforward implementation for Segmentation of  CityScapes dataset
+# Segmentation for CityScapes dataset
+
+Straightforward implementation
 
 ## Description
   
@@ -10,8 +12,13 @@ I personally used 2975 images as train data, 500 images as both validation and t
 
 pyramid scene parsing network (PSPNet) is the model architecture proposed by this paper(https://arxiv.org/abs/1612.01105).
 
+Input Image
 <img src="https://user-images.githubusercontent.com/51239551/98388785-8ac0b380-2096-11eb-8a61-44401b1ec8b6.png" width="200"/>
+
+Output Image
 <img src="https://user-images.githubusercontent.com/51239551/98388903-af1c9000-2096-11eb-88bf-fd5ce39b1d2c.png" width="200"/>
+
+Ground Truth
 <img src="https://user-images.githubusercontent.com/51239551/98388922-b5ab0780-2096-11eb-920b-f768001eb05e.png" width="200"/>
 
 ## Usage
@@ -58,4 +65,4 @@ I leave my own environment below. I tested it out on a single GPU.
 ## Reference
 * https://github.com/fregu856/deeplabv3
 * https://github.com/fregu856/segmentation
-* https://github.com/YutaroOgawa/pytorch_advanced/tree/master/3_semantic_segmentation (comment is written in Japanese)
+* https://github.com/YutaroOgawa/pytorch_advanced/tree/master/3_semantic_segmentation (written in Japanese)
