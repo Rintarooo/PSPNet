@@ -1,6 +1,6 @@
 # Segmentation for CityScapes dataset
 
-Straightforward implementation
+Straightforward implementation of Segmentation for CityScapes dataset
 
 ## Description
   
@@ -15,7 +15,7 @@ pyramid scene parsing network (PSPNet) is the model architecture proposed by thi
 Input Image, Output Image, Ground Truth
 
   
-<img src="https://user-images.githubusercontent.com/51239551/98388785-8ac0b380-2096-11eb-8a61-44401b1ec8b6.png" width="200"/> <img src="https://user-images.githubusercontent.com/51239551/98388903-af1c9000-2096-11eb-88bf-fd5ce39b1d2c.png" width="200"/> <img src="https://user-images.githubusercontent.com/51239551/98388922-b5ab0780-2096-11eb-920b-f768001eb05e.png" width="200"/>
+<img src="https://user-images.githubusercontent.com/51239551/98388785-8ac0b380-2096-11eb-8a61-44401b1ec8b6.png" width="230"/> <img src="https://user-images.githubusercontent.com/51239551/98388903-af1c9000-2096-11eb-88bf-fd5ce39b1d2c.png" width="230"/> <img src="https://user-images.githubusercontent.com/51239551/98388922-b5ab0780-2096-11eb-920b-f768001eb05e.png" width="230"/>
 
 ## Usage
   
@@ -25,7 +25,7 @@ generate the pickle file contaning hyperparameter values by running the followin
 python config.py (-h)
 ```
 
-you would see the pickle file in "Pkl" dir.  
+you will see the pickle file in `Pkl` dir.  
 now you can start training the model.
 
 ```
@@ -35,7 +35,7 @@ python train.py -p Pkl/***.pkl
 After training is done, you could see prediction of pretrained model
 
 ```
-python infer.py -p Weights/***.pt(or ***.h5)
+python infer.py -p Weights/***.pt
 ```
 
 ### Dependencies
