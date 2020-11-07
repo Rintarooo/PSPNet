@@ -43,7 +43,7 @@ python infer.py -p Weights/***.pt
 * PyTorch = 1.6.0
 * OpenCV (pip install opencv-python)
 * numpy
-* matplotlib (only for plotting)
+* matplotlib (only for test)
 
 ## Environment
 I leave my own environment below. I tested it out on a single GPU.
