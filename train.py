@@ -26,9 +26,8 @@ def train(cfg):
 	val_loader = DataLoader(val_dataset, batch_size = cfg.batch, 
 				shuffle = False, pin_memory = True, num_workers = cfg.num_workers) 
 	loss_func = PSPLoss(aux_weight = 0.4)
-	# ~ optimizer = optim_func(model)
 	optimizer = optim.Adam(model.parameters(), lr = cfg.lr)
-	# ~ scheduler = schedule_func(optimizer)
+	# scheduler = schedule_func(optimizer)
 	min_val_avg_loss, cnt = 1e4, 0
 	
 	for epoch in range(1, cfg.epochs+1):
@@ -46,7 +45,7 @@ def train(cfg):
 			optimizer.zero_grad()
 			loss.backward()
 			optimizer.step()
-			# ~ scheduler.step()
+			# scheduler.step()
 			
 			train_avg_loss += loss.item()
 			
@@ -68,6 +67,7 @@ def train(cfg):
 		val_avg_loss = 0.
 		model.eval()
 		t3 = time()
+		t5 = time()
 		with torch.no_grad():
 			for t, (img, anno_img) in enumerate(val_loader, 1):
 				if img.size(0) != cfg.batch:
@@ -104,6 +104,7 @@ def train(cfg):
 				f.write('n_train_img,%d\n'%(n_train_img))
 				f.write('n_val_img,%d\n'%(n_val_img))
 		
+		t6 = time()
 		if val_avg_loss/t < min_val_avg_loss:
 			min_val_avg_loss = val_avg_loss/t
 			print('update min_val_avg_loss: ', min_val_avg_loss)
@@ -121,7 +122,7 @@ def train(cfg):
 						f.write('time,epoch,val avg loss\n')
 				with open(val_csv_path, 'a') as f:
 					f.write('%dmin%dsec,%d,%1.3f\n'%(
-						(t4-t3)//60, (t4-t3)%60, epoch, val_avg_loss/t))
+						(t6-t5)//60, (t6-t5)%60, epoch, val_avg_loss/t))
 			
 		else:# val_avg_loss/t >= min_val_avg_loss:
 			cnt += 1
